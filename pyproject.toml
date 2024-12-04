@@ -1,0 +1,26 @@
+[project]
+name = "calendar-backend"
+version = "0.1.0"
+description = "Backend of calendar app"
+authors = [
+    {name = "donutboyy", email = "dndanielng929@gmail.com"},
+]
+dependencies = ["fastapi[standard]>=0.115.6"]
+requires-python = "==3.10.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+
+[tool.pdm.scripts]
+start = "fastapi dev app/main.py" 
+lint = "ruff check"
+format = "black ."
+
+[dependency-groups]
+test = [
+    "pytest>=8.3.4",
+]
