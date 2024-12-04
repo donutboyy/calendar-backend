@@ -24,3 +24,7 @@ format = "black ."
 test = [
     "pytest>=8.3.4",
 ]
+dev = [
+    "ruff>=0.8.1",
+    "black>=24.10.0",
+]
