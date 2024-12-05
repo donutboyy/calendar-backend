@@ -26,7 +26,7 @@ jobs:
 
       - name: Configure Docker
         run: |
-          gcloud auth configure-docker
+          gcloud auth configure-docker asia-east2-docker.pkg.dev
 
       - name: Create docker repo in Artifact Registry
         run: |
