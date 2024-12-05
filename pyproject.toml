@@ -5,7 +5,7 @@ description = "Backend of calendar app"
 authors = [
     {name = "donutboyy", email = "dndanielng929@gmail.com"},
 ]
-dependencies = ["fastapi[standard]>=0.115.6", "sqlmodel>=0.0.22", "psycopg2-binary>=2.9.10"]
+dependencies = ["fastapi[standard]>=0.115.6", "sqlmodel>=0.0.22", "alembic>=1.14.0", "psycopg2-binary>=2.9.10"]
 requires-python = "==3.10.*"
 readme = "README.md"
 license = {text = "MIT"}
@@ -19,8 +19,8 @@ distribution = false
 _.env_file = ".env"
 start = "fastapi dev app/main.py" 
 prod = "fastapi run app/main.py"
-lint = "ruff check"
-format = "black ."
+lint = "ruff check --exclude ./alembic"
+format = "black ./app ./tests"
 
 [dependency-groups]
 test = [

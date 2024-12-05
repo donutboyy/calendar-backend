@@ -2,18 +2,11 @@ from typing import Annotated
 
 from fastapi import FastAPI, Query
 from sqlmodel import select
-from contextlib import asynccontextmanager
 from app.models import Event
-from app.db import init_db, SessionDep
+from app.db import SessionDep
 
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    init_db()
-    yield
-
-
-app = FastAPI(lifespan=lifespan)
+app = FastAPI()
 
 
 @app.post("/event/")
