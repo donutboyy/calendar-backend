@@ -27,14 +27,15 @@ jobs:
       - name: Configure Docker
         run: |
           gcloud auth configure-docker
+
+      - name: Create docker repo in Artifact Registry
+        run: |
+          gcloud artifacts repositories create calendar-docker-repo --repository-format=docker \
+          --location=asia-east2 --description="Docker repository"
       
       - name: Build
         run: |
-          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/calendar:latest .
-
-      - name: Push
-        run: |
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/calendar:latest
+          gcloud builds submit --region=asia-east2 --tag asia-east2-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/calendar-docker-repo/calendar-image:latest
 
       - name: Deploy
         run: |
