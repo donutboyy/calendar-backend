@@ -26,12 +26,12 @@ jobs:
 
       - name: Configure Docker
         run: |
-          gcloud auth configure-docker asia-east2-docker.pkg.dev
+          gcloud auth configure-docker asia-east1-docker.pkg.dev
 
       - name: Create docker repo in Artifact Registry
         run: |
           gcloud artifacts repositories create calendar-docker-repo --repository-format=docker \
-          --location=asia-east2 --description="Docker repository"
+          --location=asia-east1 --description="Docker repository"
       
       - name: Build
         run: |
@@ -40,7 +40,7 @@ jobs:
       - name: Deploy
         run: |
           gcloud run deploy calendar \
-          --region asia-east2 \
+          --region asia-east1 \
           --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/calendar \
           --platform managed \
           --allow-unauthenticated \
