@@ -4,8 +4,7 @@
 
 - [x] Set up local database with docker
   - [x] Set up db migrations
-- [ ] Connect db to GET endpoint for all calender items
-- [ ] Set up CD
+- [x] Set up CD
 - [ ] Set up authentication (Google OAuth)
 - [ ] Create all endpoints needed
   - [ ] POST - create calendar item
